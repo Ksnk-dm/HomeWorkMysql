@@ -13,10 +13,7 @@ public class AllServlet extends HttpServlet {
         ArrayList<Apart> parts = DataBase.select();
         request.setAttribute("apart", parts);
         getServletContext().getRequestDispatcher("/insert.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
 }

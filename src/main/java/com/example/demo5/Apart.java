@@ -3,16 +3,25 @@ package com.example.demo5;
 import java.util.Objects;
 
 public class Apart {
-private int id;
-        private String district;
-        private String address;
-        private int area;
-        private int rooms;
-        private int price;
+    private int id;
+    private String district;
+    private String address;
+    private int area;
+    private int rooms;
+    private int price;
 
     public Apart() {
     }
 
+
+    public Apart(int id, String district, String address, int area, int rooms, int price) {
+        this.id = id;
+        this.district = district;
+        this.address = address;
+        this.area = area;
+        this.rooms = rooms;
+        this.price = price;
+    }
 
     public Apart(String district, String address, int area, int rooms, int price) {
         this.district = district;
@@ -22,9 +31,6 @@ private int id;
         this.price = price;
     }
 
-    public Apart(String district) {
-        this.district = district;
-    }
 
     public String getDistrict() {
         return district;

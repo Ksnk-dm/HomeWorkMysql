@@ -10,10 +10,6 @@ import java.util.ArrayList;
 
 @WebServlet(name = "ParamServlet", value = "/ParamServlet")
 public class ParamServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
