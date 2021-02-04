@@ -14,7 +14,6 @@ public class DataBase {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD)) {
-
                 String sql = "INSERT INTO apart (district, adress, area, rooms, price) VALUES(?,?,?,?,?)";
                 try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
                     preparedStatement.setString(1, apart.getDistrict());

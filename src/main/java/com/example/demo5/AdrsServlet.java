@@ -11,6 +11,7 @@ public class AdrsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String search = request.getParameter("Search");
         ArrayList<Apart> aparts = DataBase.paramStreet(search);
         request.setAttribute("adrsparam", aparts);
