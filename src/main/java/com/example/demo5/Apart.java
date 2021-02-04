@@ -12,15 +12,7 @@ private int id;
 
     public Apart() {
     }
-
-    public Apart(int id, String district, String address, int area, int rooms, int price) {
-        this.id = id;
-        this.district = district;
-        this.address = address;
-        this.area = area;
-        this.rooms = rooms;
-        this.price = price;
-    }
+    
 
     public Apart(String district, String address, int area, int rooms, int price) {
         this.district = district;
