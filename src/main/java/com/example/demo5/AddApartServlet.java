@@ -21,10 +21,8 @@ public class AddApartServlet extends HttpServlet {
             DataBase.insert(apart);
             request.setAttribute("added", "add");
             getServletContext().getRequestDispatcher("/create.jsp").forward(request, response);
-
-        } catch (Exception ex) {
-
-            getServletContext().getRequestDispatcher("/create.jsp").forward(request, response);
+        } catch (NumberFormatException | ServletException | IOException e) {
+            e.printStackTrace();
         }
     }
 }
