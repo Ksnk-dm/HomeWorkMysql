@@ -4,6 +4,7 @@ package com.example.demo5;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataBase {
     static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/apart?serverTimezone=Europe/Kiev";
@@ -31,8 +32,8 @@ public class DataBase {
         return 0;
     }
 
-    public static ArrayList<Apart> select() {
-        ArrayList<Apart> apartaments = new ArrayList<Apart>();
+    public static List<Apart> select() {
+        List<Apart> apartaments = new ArrayList<Apart>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD)) {
@@ -58,15 +59,14 @@ public class DataBase {
     }
 
 
-    public static ArrayList<Apart> paramDistr(String param) {
-        ArrayList<Apart> apartaments = new ArrayList<Apart>();
+    public static List<Apart> paramDistr(String param) {
+        List<Apart> apartaments = new ArrayList<Apart>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD)) {
                 PreparedStatement ps = conn.prepareStatement("SELECT * FROM apart WHERE district=?");
                 ps.setString(1, param);
                 ResultSet resultSet = ps.executeQuery();
-
                 while (resultSet.next()) {
                     int id = resultSet.getInt(1);
                     String distr = resultSet.getString(2);
@@ -86,8 +86,8 @@ public class DataBase {
         return apartaments;
     }
 
-    public static ArrayList<Apart> paramStreet(String param) {
-        ArrayList<Apart> apartaments = new ArrayList<Apart>();
+    public static List<Apart> paramStreet(String param) {
+        List<Apart> apartaments = new ArrayList<Apart>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD)) {

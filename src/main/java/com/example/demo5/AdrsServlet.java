@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "AdrsServlet", value = "/AdrsServlet")
 public class AdrsServlet extends HttpServlet {
@@ -13,7 +14,7 @@ public class AdrsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String search = request.getParameter("Search");
-        ArrayList<Apart> aparts = DataBase.paramStreet(search);
+        List<Apart> aparts = DataBase.paramStreet(search);
         request.setAttribute("adrsparam", aparts);
         getServletContext().getRequestDispatcher("/category/adrs.jsp").forward(request, response);
     }

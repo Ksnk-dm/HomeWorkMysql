@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "ParamServlet", value = "/ParamServlet")
 public class ParamServlet extends HttpServlet {
@@ -15,7 +16,7 @@ public class ParamServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String search = request.getParameter("Search");
-        ArrayList<Apart> aparts= DataBase.paramDistr(search);
+        List<Apart> aparts= DataBase.paramDistr(search);
         request.setAttribute("apartparam", aparts);
         getServletContext().getRequestDispatcher("/category/category.jsp").forward(request, response);
     }

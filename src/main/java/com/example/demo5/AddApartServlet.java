@@ -9,7 +9,7 @@ import java.io.IOException;
 public class AddApartServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)  {
         try {
             request.setCharacterEncoding("UTF-8");
             String distr = request.getParameter("distr");
